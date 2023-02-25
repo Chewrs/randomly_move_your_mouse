@@ -21,7 +21,7 @@ Windows
 
 ### Example Usage
 
-* When you run this program, it will display "Input how long you want to AFK (min)", and you have to input the number(minute) to be how long you want this program to run.
+* When you run this program, it will display ```Input how long you want to AFK (min)```, and you have to input the number(minute) to be how long you want this program to run.
 
 * Then this program will control your mouse and you will not be able to control the mouse until it is done.
 
