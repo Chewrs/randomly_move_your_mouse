@@ -3,7 +3,7 @@ import random
 import time
 
 
-apk_length = float(input("Input how long do you want to AFK (min)"))  # user input
+apk_length = float(input("Input how long you want to AFK (min)"))  # user input
 apk_time = int((apk_length * 60) / 1.43)  # change from minute to times of loop
 
 start = time.time()  # start of timer
