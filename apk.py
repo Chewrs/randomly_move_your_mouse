@@ -29,7 +29,7 @@ def covert_input():
 
 covert_input()
 
-start = time.time()  # start of timer
+start = time.perf_counter()  # start of timer
 
 move = 0  # count for the move
 right = 0  # count for right click
@@ -52,7 +52,7 @@ for i in range(int(afk_times)):
         print("click")
 
 
-end = time.time()  # end of timer
+end = time.perf_counter()  # end of timer
 # calculate time spent and convert from second to minute
 afk_long = end - start
 
