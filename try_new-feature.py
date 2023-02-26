@@ -31,9 +31,9 @@ def covert_input(input_lenght):
     print(apk_lenght)
 
 
-covert_input(input_lenght)
-for i in range(int(apk_lenght)):
-    print(i)
+# covert_input(input_lenght)
+# for i in range(int(apk_lenght)):
+# print(i)
 
 
 def covert_sec():
@@ -42,3 +42,6 @@ def covert_sec():
         "%H hours %M minutes %S second", time.gmtime(afk_long)
     )
     print(convert_afk_long)
+
+
+covert_sec()
