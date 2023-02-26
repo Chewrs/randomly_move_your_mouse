@@ -3,15 +3,38 @@ import random
 import time
 
 
-apk_length = float(input("Input how long you want to AFK (min)"))  # user input
-apk_time = int((apk_length * 60) / 1.43)  # change from minute to times of loop
+def covert_input():
+    input_error_check = True
+    while input_error_check == True:
+
+        input_lenght = str(input("Input how long you want to AFK (Hour,Minute)"))
+
+        list_lenght = input_lenght.split(",")
+
+        try:
+            hour_lenght = float(list_lenght[0])
+            min_lenght = float(list_lenght[1])
+            input_error_check = False
+        except:
+            print()
+            print("there an error")
+            print("make sure to input only the number")
+            print("and with Hour,Minute format")
+            print("for example 1,30 ")
+            print()
+
+    global afk_times
+    afk_times = ((hour_lenght * 3600) + (min_lenght * 60)) / 1.43
+
+
+covert_input()
 
 start = time.time()  # start of timer
 
 move = 0  # count for the move
 right = 0  # count for right click
 
-for i in range(apk_time):
+for i in range(int(afk_times)):
     move += 1
     print("move", move)
     # random  x and the range is depend on your screen
@@ -31,13 +54,20 @@ for i in range(apk_time):
 
 end = time.time()  # end of timer
 # calculate time spent and convert from second to minute
-afk_long = (end - start) / 60
+afk_long = end - start
+
+
+def covert_sec():
+    convert_afk_long = time.strftime(
+        "%H hours %M minutes %S second", time.gmtime(afk_long)
+    )
+    print(convert_afk_long)
 
 
 # print the over all summary
 print()
 print("DONE")
-print("%.2f" % afk_long, "minutes")  # print the time spent
+covert_sec()
 print(
     "move = ", move, "times," "right click = ", right, "times"
 )  # print how many time that move and click
