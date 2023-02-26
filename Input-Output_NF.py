@@ -35,3 +35,14 @@ covert_input()
 for i in range(int(apk_lenght)):
     print(i)
 print(apk_lenght)
+
+
+def covert_sec():
+    afk_long = 120
+    convert_afk_long = time.strftime(
+        "%H hours %M minutes %S second", time.gmtime(afk_long)
+    )
+    print(convert_afk_long)
+
+
+covert_sec()
