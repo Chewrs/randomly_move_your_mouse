@@ -1,6 +1,7 @@
 import pyautogui  # to install type "pip3 install pyautogui" on your terminal
 import random
 import time
+import json
 
 
 def covert_input():
@@ -27,47 +28,72 @@ def covert_input():
     afk_times = ((hour_lenght * 3600) + (min_lenght * 60)) / 1.43
 
 
-covert_input()
+def json_setting_open_file():
+    with open("setting.json", "r") as f:
+        data_json = json.load(f)
 
-start = time.perf_counter()  # start of timer
+        global first_x
+        global second_x
 
-move = 0  # count for the move
-right = 0  # count for right click
+        global first_y
+        global second_y
 
-for i in range(int(afk_times)):
-    move += 1
-    print("move", move)
-    # random  x and the range is depend on your screen
-    x = random.randint(100, 1000)
-    # random y and the range is depend on your sreen
-    y = random.randint(100, 1000)
-    pyautogui.moveTo(x, y, 1)  # move the cursor to the point by x and y
+        first_x = data_json["setting"]["x"][0]
+        second_x = data_json["setting"]["x"][1]
 
-    # random for the click 1 is click other is do nothing so it's 1/10
-    # we don't have the left click because it will be annoying or making the problem.
-    click = random.randint(1, 10)
-    if click == 1:
-        right += 1
-        pyautogui.rightClick()  # auto right click
-        print("click")
+        first_y = data_json["setting"]["y"][0]
+        second_y = data_json["setting"]["y"][1]
 
 
-end = time.perf_counter()  # end of timer
-# calculate time spent and convert from second to minute
-afk_long = end - start
+def radom_point():
+    global move
+    global right
+    global start
+    global end
+    start = time.perf_counter()  # start of timer
+    right = 0
+    move = 0
+    for i in range(int(afk_times)):
+        move += 1
+        print("move", move)
+        # random  x and the range is depend on your screen
+        x = random.randint(first_x, second_x)
+        # random y and the range is depend on your sreen
+        y = random.randint(first_y, second_y)
+        pyautogui.moveTo(x, y, 1)  # move the cursor to the point by x and y
+
+        # random for the click 1 is click other is do nothing so it's 1/10
+        # we don't have the left click because it will be annoying or making the problem.
+        click = random.randint(1, 10)
+        if click == 1:
+            pyautogui.rightClick()  # auto right click
+            print("click")
+            right += 1
+    print(move, right)
+    end = time.perf_counter()
 
 
 def covert_sec():
+    # end of timer
+    # calculate time spent and convert from second to minute
+    afk_long = end - start
     convert_afk_long = time.strftime(
         "%H hours %M minutes %S second", time.gmtime(afk_long)
     )
     print(convert_afk_long)
 
 
-# print the over all summary
-print()
-print("DONE")
-covert_sec()
-print(
-    "move = ", move, "times," "right click = ", right, "times"
-)  # print how many time that move and click
+def print_summry():
+    # print the over all summary
+    print()
+    print("DONE")
+    covert_sec()
+    print(
+        "move = ", move, "times," "right click = ", right, "times"
+    )  # print how many time that move and click
+
+
+covert_input()
+json_setting_open_file()
+radom_point()
+print_summry()
