@@ -26,13 +26,27 @@ def json_setting_open_file():
 
 
 def radom_point():
-    for i in range(1, 11):
-        print("move", i)
+    global move
+    global right
+    right = 0
+    move = 0
+    for i in range(int(10)):
+        move += 1
+        print("move", move)
         # random  x and the range is depend on your screen
         x = random.randint(first_x, second_x)
         # random y and the range is depend on your sreen
         y = random.randint(first_y, second_y)
         pyautogui.moveTo(x, y, 1)  # move the cursor to the point by x and y
+
+        # random for the click 1 is click other is do nothing so it's 1/10
+        # we don't have the left click because it will be annoying or making the problem.
+        click = random.randint(1, 10)
+        if click == 1:
+            pyautogui.rightClick()  # auto right click
+            print("click")
+            right += 1
+    print(move, right)
 
 
 json_setting_open_file()
