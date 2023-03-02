@@ -1,5 +1,5 @@
-# Automatic mouse move
-This python programming will move your mouse while you're AFK.
+# randomly move your mouse
+This Python program moves and clicks the mouse when you want to AFK during online work.
 
 ## Get started
 ### Dependencies
@@ -21,7 +21,11 @@ Windows
 
 ### Example Usage
 
-* When you run this program, it will display ```Input how long you want to AFK (min)```, and you have to input the number(minute) to be how long you want this program to run.
+* When you run this program, it will display ```Input how long you want to AFK (Hour,Minute)``` and you have to input the number for the hour.(it can be zero) then commma(,) and input the another number for the minutes to be how long you want this program to run.
+* example of input
+* 1 hour and 45 minutes ```1,45```
+* 10 minutes ```0,10```
+
 
 * Then this program will control your mouse and you will not be able to control the mouse until it is done.
 
