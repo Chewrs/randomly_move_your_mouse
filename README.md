@@ -23,8 +23,8 @@ Windows
 
 * When you run this program, it will display ```Input how long you want to AFK (Hour,Minute)``` and you have to input the number for the hour.(it can be zero) then commma(,) and input the another number for the minutes to be how long you want this program to run.
 * example of input
-* 1 hour and 45 minutes ```1,45```
-* 10 minutes ```0,10```
+* 1 hour and 45 minutes => ```1,45```
+* 10 minutes => ```0,10```
 
 
 * Then this program will control your mouse and you will not be able to control the mouse until it is done.
@@ -40,12 +40,16 @@ Mac os
 * to stop halfway hold command + alt + Esc then uses the page up and down button to select the python application then press Enter and Enter.
 
 
-## Antors
-[Chewrs](https://github.com/Chewrs)
+## author
+[Chewrs](https://chewrs.netlify.app/)
 
 ## Version History
+* 2.0
+  * setting in json file
+  * new input & output
 * 1.0
   * Initial Release
+
 
 ## Acknowledgments
 * [Dominique Pizzie](https://gist.github.com/DomPizzie) for the sample of this Readme.md
